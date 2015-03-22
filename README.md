@@ -3,7 +3,10 @@ BitPHP
 
 **PHP MVC-HMVC Micro-framework.**
 
+http://root404.com/page/bitphp
+
 **C a r a c t e r i s t i c a s**
+
 - Arquitectura: Puedes elegir entre trabajar bajo patrón HMVC o simplemente con MVC, como más te guste.
 - Desarrollo/Producción: Trabaja con parámetros de configuración diferentes para cuando estés desarrollando y para cuando la aplicación sea publicada, puedes realizar este cambio fácilmente.
 - Modularidad: El núcleo es realmente pequeño ¿necesitas algo más? agrega nuevas funciones a partir de módulos, de esta manera utilizas solo lo que necesitas.
