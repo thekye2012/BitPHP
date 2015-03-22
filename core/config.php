@@ -24,7 +24,7 @@
     const MAIN_APP = 'cpanel';
     const MAIN_ACTION = 'main';
     const ERR_VIEW = null;
-    const NOT_FOUND_VIEW = 'errors/not_found';
+    const NOT_FOUND_VIEW = null;
     const FORBIDDEN_VIEW = null;
 
     public static $AUTO_LOAD = array(
@@ -36,16 +36,16 @@
       , 'PHP_ERRORS' => True
       , 'DB_HOST' => 'localhost'
       , 'DB_USER' => 'root'
-      , 'DB_PASS' => 'holamundo'
+      , 'DB_PASS' => 'password'
     );
 
     public static $ON_PRO = array(
-        'APP_RUNNING' => 'home'
+        'APP_RUNNING' => 'cpanel'
       , 'BASE_PATH' => '/'
       , 'PHP_ERRORS' => False
       , 'DB_HOST' => 'localhost'
-      , 'DB_USER' => 'u175110910_rut'
-      , 'DB_PASS' => 'Papasconchile123'
+      , 'DB_USER' => 'YOUR_USER'
+      , 'DB_PASS' => 'YOUR_PASSWORD'
     );
 
     /* ATENCION */
