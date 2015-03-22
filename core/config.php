@@ -24,12 +24,11 @@
     const MAIN_APP = 'cpanel';
     const MAIN_ACTION = 'main';
     const ERR_VIEW = null;
-    const NOT_FOUND_VIEW = null;
+    const NOT_FOUND_VIEW = 'errors/not_found';
     const FORBIDDEN_VIEW = null;
 
     public static $AUTO_LOAD = array(
         'Template'
-      , 'InputValidate'
     );
 
     public static $ON_DEV = array(
@@ -37,15 +36,15 @@
       , 'PHP_ERRORS' => True
       , 'DB_HOST' => 'localhost'
       , 'DB_USER' => 'root'
-      , 'DB_PASS' => ''
+      , 'DB_PASS' => 'holamundo'
     );
 
     public static $ON_PRO = array(
-        'APP_RUNNING' => 'cpanel'
+        'APP_RUNNING' => 'home'
       , 'BASE_PATH' => '/'
       , 'PHP_ERRORS' => False
       , 'DB_HOST' => 'localhost'
-      , 'DB_USER' => 'u1723_rt404'
+      , 'DB_USER' => 'u175110910_rut'
       , 'DB_PASS' => 'Papasconchile123'
     );
 

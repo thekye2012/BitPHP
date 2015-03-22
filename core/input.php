@@ -20,37 +20,6 @@
   class Input {
 
     /**
-    *	Gets the value of the specified index in the specified method.
-    *	if method is null, returns $key
-    *
-    *	@param string $m method to work (GET, POST, COOKIE, (and URLPARAMS in bitphp))
-    *	@param string $k index of ($_POST, $_GET or $_COOKIE) to search
-    *	@return string
-    */
-    protected static function get_value($m, $k, $f = true) 
-    {
-      switch(strtoupper($m)) {
-        case 'POST':
-          $s = self::post($k, $f);
-          break;
-        case 'GET':
-          $s = self::get($k, $f);
-          break;
-        case 'COOKIE':
-          $s = self::cookie($k, $f);
-          break;
-        case 'URL_PARAM':
-          $s = self::url_param($k, $f);
-          break;
-        case null:
-          $s = $k;
-          break;
-      }
-
-      return $s;
-    }
-
-    /**
     *	if you use this class alone, you can download bitphp here -> bitphp.root404.com
     *
     *	<p>ONLY WITH BITPHP, gets the value of the specified index in url params, and filters

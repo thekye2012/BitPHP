@@ -26,10 +26,10 @@
     *	@example /var/www/docs/examples/DataBase_driver.php
     *	@todo modified to other controllers database and charset, mysql and utf8 by default
     */
-    public static function driver($dbname, $p) {
-      $host = empty($p['host']) ? $p['host'] : Config::db_host();
-      $user = empty($p['user']) ? $p['user'] : Config::db_user();
-      $pass = empty($p['pass']) ? $p['pass'] : Config::db_pass();
+    public static function driver($dbname, $p = Null) {
+      $host = empty($p['host']) ? Config::db_host() : $p['host'];
+      $user = empty($p['user']) ? Config::db_user() : $p['user'];
+      $pass = empty($p['pass']) ? Config::db_pass() : $p['pass'];
 
       return new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8',$user,$pass);
     }
@@ -47,9 +47,8 @@
       $_warnings = ['\'','\\'];
       $_replaces = $remove ? ['',''] : ['&#146;','\\\\'];
 
-      return str_replace($_warnings, $_replaces, $string);
+      $string = str_replace($_warnings, $_replaces, $string);
+      return '\'' . $string . '\'';
     }
-
   }
-
 ?>

@@ -2,6 +2,37 @@
 
 	class InputValidate extends Input {
 
+  /**
+    * Gets the value of the specified index in the specified method.
+    * if method is null, returns $key
+    *
+    * @param string $m method to work (GET, POST, COOKIE, (and URLPARAMS in bitphp))
+    * @param string $k index of ($_POST, $_GET or $_COOKIE) to search
+    * @return string
+    */
+    protected static function get_value($m, $k, $f = true) 
+    {
+      switch(strtoupper($m)) {
+        case 'POST':
+          $s = self::post($k, $f);
+          break;
+        case 'GET':
+          $s = self::get($k, $f);
+          break;
+        case 'COOKIE':
+          $s = self::cookie($k, $f);
+          break;
+        case 'URL_PARAM':
+          $s = self::url_param($k, $f);
+          break;
+        case null:
+          $s = $k;
+          break;
+      }
+
+      return $s;
+    }
+
 	/**
     *	Gets value of index in specified method, and validate it a password,
     *	to be acceptable password must contain at least 8 characters,
@@ -119,12 +150,12 @@
       return $s;
     }
 
-    public static function clean_blacklist($m, $k) {
+    public static function clean_blacklist($m, $k, $list) {
       $s = self::get_value($m, $k, false);
 
       if(!$s){ return null; }
 
-      $blackList = @file_get_contents('app/resources/WordBlackList');
+      $blackList = @file_get_contents( $list );
 
       if(!$blackList) {
         $m = 'No se pudo cargar el archivo de lista negra';

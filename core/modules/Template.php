@@ -15,7 +15,7 @@
     */
     public function render($_tmplts, $_values = array()) {
       global $_APP;
-      $_PUBLIC_PATH = Config::base_path() . 'public';
+      $_PUBLIC_PATH = Route::public_folder_link();
       $_APP_LINK = Route::app_link();
 
       $_content = '';
@@ -30,11 +30,11 @@
       $_i = count($_tmplts);
 
       for($_j = 0; $_j < $_i; $_j++) {
-        $_read = @file_get_contents( $_APP .'/views/'.$_tmplts[$_j].'.pht' );
+        $_read = @file_get_contents( $_APP .'/views/'.$_tmplts[$_j].'.tmpl.php' );
 
         if($_read === FALSE){
           $_m = 'Error al renderizar <b>'.$_tmplts[$_j].'</b>';
-          $_c = 'El fichero <b>../' . $_APP .'/views/'.$_tmplts[$_j].'.pht</b> no existe!';
+          $_c = 'El fichero <b>../' . $_APP .'/views/'.$_tmplts[$_j].'.tmpl.php</b> no existe!';
           Error::trace($_m, $_c);
           return 0;
         }

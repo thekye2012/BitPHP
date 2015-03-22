@@ -18,16 +18,26 @@
 			return empty($_GET['_route']) ? array() : explode('/', $_GET['_route']) ;
 		}
 
+		public static function server_name() {
+
+			return ( empty( $_SERVER['HTTPS'] ) ? 'http://' : 'https://' ) . $_SERVER['SERVER_NAME'];
+		}
+
 		public static function app_link() {
 			global $_URL;
 
-			$link = ( empty( $_SERVER['HTTPS'] ) ? 'http://' : 'https://' ) . $_SERVER['SERVER_NAME'];
+			$link = self::server_name();
 
 			if( Config::ENABLE_HMVC && ( Config::DEV || Config::ENABLE_PRO_MULTI_APP ) ) {
-				$link .= '/' . ( empty($_URL[0]) ? Config::MAIN_APP : $_URL[0] );
+				$link .= Config::base_path() . ( empty($_URL[0]) ? Config::MAIN_APP : $_URL[0] );
 			}
 
 			return $link;
+		}
+
+		public static function public_folder_link() {
+
+			return self::server_name() . Config::base_path() . 'public';
 		}
 
 		public static function app_path( $route ) {

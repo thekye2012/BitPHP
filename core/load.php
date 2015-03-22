@@ -128,7 +128,7 @@
       $_i = count($_names);
 
       extract($_params);
-      $_PUBLIC_PATH = Config::base_path() . 'public';
+      $_PUBLIC_PATH = $_PUBLIC_PATH = Route::public_folder_link();
       $_APP_LINK = Route::app_link();
 
       for($_j = 0; $_j < $_i; $_j++) {
