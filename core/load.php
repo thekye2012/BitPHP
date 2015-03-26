@@ -18,7 +18,7 @@
   *	@website http://bitphp.root404.com <contacto@root404.com>
   *	@license GNU/GPLv3
   */
-  class Load 
+  class Load
   {
 
     /**
@@ -46,7 +46,7 @@
     public static function auto() {
       $_n = count(Config::$AUTO_LOAD);
 
-      for ($_i = 0; $_i < $_n; $_i++) { 
+      for ($_i = 0; $_i < $_n; $_i++) {
         self::module(Config::$AUTO_LOAD[$_i]);
       }
     }
@@ -111,7 +111,7 @@
         Error::trace($_d, $_c);
       }
     }
-    
+
     /**
     *	Attempts to load and display the specified view.
     *
@@ -128,6 +128,7 @@
       $_i = count($_names);
 
       extract($_params);
+      $_BASE_PATH = Config::base_path();
       $_PUBLIC_PATH = $_PUBLIC_PATH = Route::public_folder_link();
       $_APP_LINK = Route::app_link();
 
@@ -142,6 +143,6 @@
         }
       }
     }
-    
+
   }
 ?>

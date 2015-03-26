@@ -32,7 +32,7 @@
     );
 
     public static $ON_DEV = array(
-        'BASE_PATH' => '/'
+        'BASE_PATH' => '/bitphp/'
       , 'PHP_ERRORS' => True
       , 'DB_HOST' => 'localhost'
       , 'DB_USER' => 'root'
@@ -52,6 +52,8 @@
     #
     # Si no eres del equipo de desarrollo, por favor no toques nada de aquí para abajo,
     # la civilicacion como la conocemos depende de ello, gracias.
+
+    const CORE_VERSION = '3.0.2';
 
     public static function php_errors() { return self::DEV ? self::$ON_DEV['PHP_ERRORS'] : self::$ON_PRO['PHP_ERRORS']; }
     public static function db_host() { return self::DEV ? self::$ON_DEV['DB_HOST'] : self::$ON_PRO['DB_HOST']; }

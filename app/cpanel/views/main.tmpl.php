@@ -4,27 +4,30 @@
 	<title>BitPHP | Mark V</title>
 	{css grid css}
 	{css welcome css}
+	{js jquery js}
 </head>
 <body>
 	<div class="container">
 		<br>
 		<div class="row">
-			<div><span class="title">B i t P H P</span>M a r k &nbsp; V</div>
+			<div><span class="title">B i t P H P</span> M a r k &nbsp; V</div>
 		</div>
 		<div class="row">
-			<hr>
 			<div class="col-sm-4">
-				<div class="panel">
-					<h3>¡Bienvenido!</h3>
-					<hr>
-					<p align="justify">Arquitectura HMVC para mayor escalabilidad, núcleo más ligero, ahora puedes usar sólo lo que necesitas.</p>
+				<div class="panel blue-bottom">
+					<h3>General</h3>
+					<p>
+						<a href="#">Versión del núcleo:</a> {{ $version }}<br>
+						<a href="#">Ficheros incluidos: </a> {{ $included_files }}<br>
+						<a href="#">Uso de memoria: </a>{{ $mem_usage }} Kb
+					</p>
 				</div>
 				<div class="panel blue-bottom">
 					<h3>Apps</h3>
 					<p>Actualmente se encuentran alojadas las siguientes aplicaciones <a href="#">( {{ count($apps) }} en total ):</a></p>
 					<p>
 						{each $apps as $app :}
-							<a href="/{{ $app }}">{{  strtoupper( $app ) }}</a><br>
+							<a href="{{ $_BASE_PATH }}{{ $app }}">{{  strtoupper( $app ) }}</a><br>
 						{/each}
 					</p>
 				</div>

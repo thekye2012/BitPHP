@@ -1,9 +1,9 @@
 <?php
-	
+
 	use \BitPHP\Config;
 	use \BitPHP\Error;
   use \BitPHP\Route;
-	
+
 	class Template {
 
 	/**
@@ -15,6 +15,7 @@
     */
     public function render($_tmplts, $_values = array()) {
       global $_APP;
+			$_BASE_PATH = Config::base_path();
       $_PUBLIC_PATH = Route::public_folder_link();
       $_APP_LINK = Route::app_link();
 

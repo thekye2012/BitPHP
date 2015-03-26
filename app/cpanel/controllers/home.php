@@ -46,6 +46,9 @@
 				, 'config' => $config_params
 				, 'on_dev' => $dev_config
 				, 'on_pro' => $pro_config
+				, 'version' => Config::CORE_VERSION
+				, 'included_files' => count( get_included_files() )
+				, 'mem_usage' => intval( ( memory_get_usage() / 1024 ) )
 			];
 
 			Template::render('main', $params);
