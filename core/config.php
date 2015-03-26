@@ -26,6 +26,7 @@
     const ERR_VIEW = null;
     const NOT_FOUND_VIEW = null;
     const FORBIDDEN_VIEW = null;
+    const LOG_FILE = 'core/bitphp.log';
 
     public static $AUTO_LOAD = array(
         'Template'

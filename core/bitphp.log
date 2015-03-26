@@ -1,0 +1,18 @@
+
+[TimeStamp]
+	Thursday 26th of March 2015 06:06:59 PM
+[Description]
+	El controlador <b>asdasd</b> no se pudo cargar.
+[Exception]
+	El fichero <b>app/cpanel/controllers/asdasd.php</b> no existe
+[Trace]
+	[{"file":"\/var\/www\/html\/bitphp\/core\/load.php","line":90,"function":"trace","class":"BitPHP\\Error","type":"::","args":["El controlador <b>asdasd<\/b> no se pudo cargar.","El fichero <b>app\/cpanel\/controllers\/asdasd.php<\/b> no existe",false]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":37,"function":"controller","class":"BitPHP\\Load","type":"::","args":["asdasd"]}]
+
+[TimeStamp]
+	Thursday 26th of March 2015 06:08:33 PM
+[Description]
+	Oops! hubo un problema al ejecutar la aplicacion.
+[Exception]
+	La aplicacion <b>/app/caca/</b> no existe.
+[Trace]
+	[{"file":"\/var\/www\/html\/bitphp\/core\/route.php","line":11,"function":"trace","class":"BitPHP\\Error","type":"::","args":["Oops! hubo un problema al ejecutar la aplicacion.","La aplicacion <b>\/app\/caca\/<\/b> no existe.",false]},{"file":"\/var\/www\/html\/bitphp\/core\/route.php","line":54,"function":"validate_app","class":"BitPHP\\Route","type":"::","args":["app\/caca"]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":33,"function":"app_path","class":"BitPHP\\Route","type":"::","args":[["caca"]]}]

@@ -35,23 +35,28 @@
       $trace = $ex->getTrace();
 
       if(Config::php_errors()){
-
-        $params = [
-            'description' => $d
-          , 'exception' => $e
-          , 'print_trace' => $print_trace
-          , 'trace' => $trace
-        ];
-        
+    
         if( Config::ERR_VIEW ) {
+          $params = [
+              'description' => $d
+            , 'exception' => $e
+            , 'print_trace' => $print_trace
+            , 'trace' => $trace
+          ];
+          
           Load::view(Config::ERR_VIEW, $params);
         } else {
           echo $d, '<br>', $e, '<br>';
           echo $print_trace ? '<pre>'. json_encode($trace[2], JSON_PRETTY_PRINT) .'</pre>' : null ;
         }
+
       } else {
         Response::not_found();
       }
+
+      $log  = "\n[TimeStamp]\n\t" . date('l jS \of F Y h:i:s A');
+      $log .= "\n[Description]\n\t$d\n[Exception]\n\t$e\n[Trace]\n\t" . json_encode( $trace ) . "\n";
+      error_log( $log, 3, Config::LOG_FILE );
       exit;
     }
   }

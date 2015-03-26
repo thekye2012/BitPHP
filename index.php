@@ -13,7 +13,7 @@
    *	@website http://bitphp.root404.com <contacto@root404.com>
    *	@license GNU/GPLv3
    */
-  
+
   require('core/config.php');
   require('core/errors.php');
   require('core/load.php');
@@ -26,7 +26,7 @@
     error_reporting(0);
     ini_set('display_errors', '0');
   }
-
+  
   \BitPHP\Load::auto();
 
   $_URL = \BitPHP\Route::parse_route();
