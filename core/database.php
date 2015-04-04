@@ -27,6 +27,8 @@
     *	@todo modified to other controllers database and charset, mysql and utf8 by default
     */
     public static function driver($dbname, $p = Null) {
+      $dbname = explode( ':', $dbname);
+      $dbname = ( $dbname[0] == 'alias' ) ? Config::db_name( $dbname[1] ) : $dbname[0] ;
       $host = empty($p['host']) ? Config::db_host() : $p['host'];
       $user = empty($p['user']) ? Config::db_user() : $p['user'];
       $pass = empty($p['pass']) ? Config::db_pass() : $p['pass'];

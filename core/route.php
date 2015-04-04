@@ -26,10 +26,10 @@
 		public static function app_link() {
 			global $_URL;
 
-			$link = self::server_name();
+			$link = self::server_name() . Config::base_path();
 
 			if( Config::ENABLE_HMVC && ( Config::DEV || Config::ENABLE_PRO_MULTI_APP ) ) {
-				$link .= Config::base_path() . ( empty($_URL[0]) ? Config::MAIN_APP : $_URL[0] );
+				$link .= ( empty($_URL[0]) ? Config::MAIN_APP : $_URL[0] );
 			}
 
 			return $link;

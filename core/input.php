@@ -39,7 +39,7 @@
       global $_URL;
 
       if( is_numeric($i) ) { 
-        $i += ( Config::DEV || Config::ENABLE_PRO_MULTI_APP ) ? 3 : 2 ;
+        $i += ( ( Config::DEV && Config::ENABLE_HMVC ) || Config::ENABLE_PRO_MULTI_APP ) ? 3 : 2 ;
         $s = !empty($_URL[$i]) ? $_URL[$i] : null;
       } else {
         $i = array_search($i, $_URL);

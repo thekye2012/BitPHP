@@ -10,7 +10,7 @@
                  *
                  *      @return String
                  */
-                function time_ago( $string_date ) {
+                public static function time_ago( $string_date ) {
 
                         $date_1 = new DateTime($string_date);
                         $date_2 = new DateTime();
