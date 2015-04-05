@@ -10,6 +10,12 @@
 		public $template_vars = array();
 		public $result = null;
 
+		private function clean() {
+			$this->template_source = '';
+			$this->template_vars = array();
+			$this->result = null;
+		}
+
 		private function compile() {
 
 			$_PUBLIC_PATH = Route::public_folder_link();
@@ -19,7 +25,7 @@
 				, '{if'
 				, ':}'
 				, '{elif'
-				, '{el}'
+				, '{else}'
 				, '{/if}'
 				, '{{'
 				, '}}'
@@ -52,6 +58,8 @@
 		}
 
 		public function load( $templates ) {
+
+			$this->clean();
 
 			global $_APP;
 

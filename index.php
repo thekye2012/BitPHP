@@ -34,13 +34,5 @@
 
   $method = \BitPHP\Route::get_method( $_URL );
   $controller = \BitPHP\Route::get_controller( $_URL );
-  $controller_obj = \BitPHP\Load::controller( $controller ) ;
-
-  if( method_exists($controller, $method) ) {
-    $controller_obj->$method();
-  } else {
-    $d = 'Error en controlador <b>'. $controller .'</b>';
-    $m = 'No contiene el metodo <b>'. $method .'()</b>';
-    \BitPHP\Error::trace($d, $m, False);
-  }
+  \BitPHP\Load::controller( $controller, $method ) ;
 ?>

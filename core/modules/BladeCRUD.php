@@ -182,6 +182,28 @@
 			return $this->error ? false : $this->stmt->rowCount();
 		}
 
+		public function first() {
+
+			if( $this->executed_query != 'select' ) {
+				$m = 'Error al extraer el primer resultado de la consulta';
+				$e = 'Ninguna sentencia BladeCRUD::select ha sido ejecutada (BladeCRUD::execute)';
+				Error::trace( $m, $e );
+			}
+
+			return $this->error ? false : $this->result()[0];
+		}
+
+		public function last() {
+
+			if( $this->executed_query != 'select' ) {
+				$m = 'Error al extraer el ultimo resultado de la consulta';
+				$e = 'Ninguna sentencia BladeCRUD::select ha sido ejecutada (BladeCRUD::execute)';
+				Error::trace( $m, $e );
+			}
+
+			return $this->error ? false : $this->result()[$this->stmt->rowCount() - 1];
+		}
+
 		public function result() {
 
 			if( $this->result === null ) {

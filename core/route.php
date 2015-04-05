@@ -14,8 +14,12 @@
 			return $app;
 		}
 
-		public static function parse_route() {
-			return empty($_GET['_route']) ? array() : explode('/', $_GET['_route']) ;
+		public static function parse_route( $route = null ) {
+			if ( !$route ) {
+				return empty($_GET['_route']) ? array() : explode('/', $_GET['_route']) ;
+			} else {
+				return explode('/', $route);
+			}
 		}
 
 		public static function server_name() {

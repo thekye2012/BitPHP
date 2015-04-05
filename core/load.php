@@ -71,19 +71,48 @@
       }
     }
 
+    public static function run( $_app_, $echo = true ) {
+      global $_APP;
+      global $_URL;
+      $_APP_TEMP = $_APP;
+      $_URL_TEMP = $_URL;
+
+      $_URL = Route::parse_route( $_app_ );
+      $_APP = Route::app_path( $_URL );
+      $_CONTROLLER = Route::get_controller( $_URL );
+      $_METHOD = Route::get_method( $_URL );
+
+      if( !$echo ) {
+        ob_start();
+      }
+
+      self::controller( $_CONTROLLER, $_METHOD );
+
+      $_APP = $_APP_TEMP;
+      $_URL = $_URL_TEMP;
+
+      return $echo ? null : ob_get_clean();
+    }
+
     /**
     *	Try loading the driver indicated, only used by bitphp core.
     *
     *	@param string $_name Name of the controller to be loaded, without extension, passed by reference.
     *	@return object
     */
-    public static function controller(&$_name) {
+    public static function controller(&$_name, &$_method) {
       global $_APP;
       $_file = $_APP .'/controllers/'.$_name.'.php';
       try {
         self::include_file($_file, $_name);
-        $_instance = new $_name();
-        return $_instance;
+        if( method_exists($_name, $_method) ) {
+          $_instance = new $_name();
+          $_instance->$_method();
+        } else {
+          $d = 'Error en controlador <b>'. $_name .'</b>';
+          $m = 'No contiene el metodo <b>'. $_method .'()</b>';
+          \BitPHP\Error::trace($d, $m, False);
+        }
       } catch(Exception $_e) {
         $_d = 'El controlador <b>'.$_name.'</b> no se pudo cargar.';
         $_c = $_e->getMessage();

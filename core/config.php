@@ -22,7 +22,7 @@
     const DEV = True;
     const ENABLE_HMVC = False;
     const ENABLE_PRO_MULTI_APP = False;
-    const MAIN_CONTROLLER = 'otro';
+    const MAIN_CONTROLLER = 'home';
     const MAIN_APP = 'cpanel';
     const MAIN_ACTION = 'main';
     const ERR_VIEW = null;

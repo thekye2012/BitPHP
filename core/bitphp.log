@@ -367,3 +367,57 @@
 	Ninguna sentencia ha sido ejecutada (BladeCRUD::execute)
 [Trace]
 	[{"file":"\/var\/www\/html\/bitphp\/core\/modules\/BladeCRUD.php","line":190,"function":"trace","class":"BitPHP\\Error","type":"::","args":["Error al mostrar los resultados de la consulta","Ninguna sentencia ha sido ejecutada (BladeCRUD::execute)"]},{"file":"\/var\/www\/html\/bitphp\/app\/controllers\/crud_testing.php","line":21,"function":"result","class":"BladeCRUD","type":"->","args":[]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":40,"function":"select","class":"Crud_Testing","type":"->","args":[]}]
+
+[TimeStamp]
+	Sunday 5th of April 2015 12:29:00 PM
+[Description]
+	Error en controlador <b></b>
+[Exception]
+	No contiene el metodo <b>()</b>
+[Trace]
+	[{"file":"\/var\/www\/html\/bitphp\/core\/load.php","line":106,"function":"trace","class":"BitPHP\\Error","type":"::","args":["Error en controlador <b><\/b>","No contiene el metodo <b>()<\/b>",false]},{"file":"\/var\/www\/html\/bitphp\/core\/load.php","line":85,"function":"controller","class":"BitPHP\\Load","type":"::","args":["crud_testing"]},{"file":"\/var\/www\/html\/bitphp\/app\/controllers\/run_test.php","line":8,"function":"run","class":"BitPHP\\Load","type":"::","args":["crud_testing\/select"]},{"file":"\/var\/www\/html\/bitphp\/core\/load.php","line":102,"function":"main","class":"Run_Test","type":"->","args":[]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":37,"function":"controller","class":"BitPHP\\Load","type":"::","args":["run_test","main"]}]
+
+[TimeStamp]
+	Sunday 5th of April 2015 12:40:13 PM
+[Description]
+	Oops! hubo un problema al ejecutar la aplicacion.
+[Exception]
+	La aplicacion <b>/app/run_test/</b> no existe.
+[Trace]
+	[{"file":"\/var\/www\/html\/bitphp\/core\/route.php","line":11,"function":"trace","class":"BitPHP\\Error","type":"::","args":["Oops! hubo un problema al ejecutar la aplicacion.","La aplicacion <b>\/app\/run_test\/<\/b> no existe.",false]},{"file":"\/var\/www\/html\/bitphp\/core\/route.php","line":58,"function":"validate_app","class":"BitPHP\\Route","type":"::","args":["app\/run_test"]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":33,"function":"app_path","class":"BitPHP\\Route","type":"::","args":[["run_test"]]}]
+
+[TimeStamp]
+	Sunday 5th of April 2015 12:40:22 PM
+[Description]
+	El controlador <b>otro</b> no se pudo cargar.
+[Exception]
+	El fichero <b>app/hmvc_test_app/controllers/otro.php</b> no existe
+[Trace]
+	[{"file":"\/var\/www\/html\/bitphp\/core\/load.php","line":116,"function":"trace","class":"BitPHP\\Error","type":"::","args":["El controlador <b>otro<\/b> no se pudo cargar.","El fichero <b>app\/hmvc_test_app\/controllers\/otro.php<\/b> no existe",false]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":37,"function":"controller","class":"BitPHP\\Load","type":"::","args":["otro","main"]}]
+
+[TimeStamp]
+	Sunday 5th of April 2015 12:43:52 PM
+[Description]
+	Error al renderizar <b>footer</b>
+[Exception]
+	El fichero <b>../app/other_hmvc_test/views/footer.sword.php</b> no existe
+[Trace]
+	[{"file":"\/var\/www\/html\/bitphp\/core\/modules\/SwordEngine.php","line":67,"function":"trace","class":"BitPHP\\Error","type":"::","args":["Error al renderizar <b>footer<\/b>","El fichero <b>..\/app\/other_hmvc_test\/views\/footer.sword.php<\/b> no existe"]},{"file":"\/var\/www\/html\/bitphp\/app\/hmvc_test_app\/controllers\/home.php","line":18,"function":"load","class":"SwordEngine","type":"->","args":["footer"]},{"file":"\/var\/www\/html\/bitphp\/core\/load.php","line":107,"function":"main","class":"Home","type":"->","args":[]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":37,"function":"controller","class":"BitPHP\\Load","type":"::","args":["home","main"]}]
+
+[TimeStamp]
+	Sunday 5th of April 2015 01:17:20 PM
+[Description]
+	El controlador <b>hmvc_test_app</b> no se pudo cargar.
+[Exception]
+	El fichero <b>app/controllers/hmvc_test_app.php</b> no existe
+[Trace]
+	[{"file":"\/var\/www\/html\/bitphp\/core\/load.php","line":119,"function":"trace","class":"BitPHP\\Error","type":"::","args":["El controlador <b>hmvc_test_app<\/b> no se pudo cargar.","El fichero <b>app\/controllers\/hmvc_test_app.php<\/b> no existe",false]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":37,"function":"controller","class":"BitPHP\\Load","type":"::","args":["hmvc_test_app","main"]}]
+
+[TimeStamp]
+	Sunday 5th of April 2015 01:17:23 PM
+[Description]
+	El controlador <b>home</b> no se pudo cargar.
+[Exception]
+	El fichero <b>app/controllers/home.php</b> no existe
+[Trace]
+	[{"file":"\/var\/www\/html\/bitphp\/core\/load.php","line":119,"function":"trace","class":"BitPHP\\Error","type":"::","args":["El controlador <b>home<\/b> no se pudo cargar.","El fichero <b>app\/controllers\/home.php<\/b> no existe",false]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":37,"function":"controller","class":"BitPHP\\Load","type":"::","args":["home","main"]}]
