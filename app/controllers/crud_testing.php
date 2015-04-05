@@ -15,26 +15,20 @@
 
 		public function select() {
 			
-			$query = $this->db->table('crud')->select('*')->where(['user' => 'vaca || like %as%'])->execute();
+			$query = $this->db->table('crud')->select('*')->where([
+				  'user | message' => "is like '%as%'"
+				, 'AND:id' => "is BETWEEN 10 AND 15 | is BETWEEN 20 AND 30"
+			])->order('id','down')->limit(5)->execute();
 
-			if( $query->error ) { echo $query->error; exit; }
-
-			$params = [
-				  'consulta' => $query->result
-				, 'numero_de_resultados' => $query->count()
-				, 'consulta_sql' => $query->string
-			];
-
-			Template::render('testing/crud/select', $params);
-
-			$query = $query->select('message, user')->where(['id' => '< 8'])->order( 'id','down' )->limit(3)->execute();
-
-			if( $query->error ) { echo $query->error; exit; }
+			if( $query->error() ) { 
+				echo $query->error;
+				exit;
+			}
 
 			$params = [
-				  'consulta' => $query->result
-				, 'numero_de_resultados' => $query->count()
-				, 'consulta_sql' => $query->string
+				  'consulta' => $query->string()
+				, 'i_resultados' => $query->count()
+				, 'resultados' => $query->result()
 			];
 
 			Template::render('testing/crud/select', $params);

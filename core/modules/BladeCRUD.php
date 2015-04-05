@@ -9,9 +9,10 @@
 		private $table_name = null;
 		private $initialized_query = null;
 		private $executed_query = null;
+		public $result = null;
 		public $query = null;
 		public $stmt = null;
-		public $error;
+		public $error = null;
 
 		public function __construct( $dbname ) {
 
@@ -113,44 +114,33 @@
 				Error::trace( $m, $e );
 			}
 
-			$values = array();
-			$i = 0;
+			$this->string .= ' WHERE ';
 
-			foreach ($q as $key => $value) {
-				$key = str_replace(['&&','||'], ['AND', 'OR'], $key);
+			foreach ($q as $vars => $values) {
 
-				$or_in_value = explode('||', $value);
-				$or_in_value_i = count( $or_in_value );
-
-				if( $or_in_value_i == 1 ) {
-
-					$value = explode( ' ', $value);
-					$value_len = count( $value );
-					$operator = $value_len == 1 ? '=' : $value[0];
-					$value = $value_len == 1 ? $value[0] : $value[1];
-
-					$values[$i] = $key . " $operator " . self::sanatize( $value );
+				$vars = explode(':', $vars);
+				if ( count($vars) > 1 ) {
+					$this->string .= " $vars[0] ";
+					$vars = $vars[1];
 				} else {
-					
-					$or_values = array();
-
-					for( $j = 0; $j < $or_in_value_i; $j++ ) {
-
-						$value = explode( ' ', trim( $or_in_value[$j] ));
-						$value_len = count( $value );
-						$operator = $value_len == 1 ? '=' : $value[0];
-						$value = $value_len == 1 ? $value[0] : $value[1];
-
-						$or_values[$j] = $key . " $operator " . self::sanatize( $value );
-					}
-
-					$values[$i] = '(' . implode( ' OR ', $or_values ) . ')';
+					$vars = $vars[0];
 				}
 
-				$i++;
+				$vars_array = preg_split('/[\|\&]/', $vars);
+   				$vars_len = count( $vars_array );
+   				$vars = str_replace( ['|','&'], [' OR ',' AND '], $vars );
+
+   				$var_values = array();
+
+   				for( $i = 0; $i< $vars_len; $i++ ) {
+	      			$var = trim( $vars_array[$i] );
+      				$var_values[$i] = '( ' . str_replace( ['is','|','&'], [$var,'OR', 'AND'], $values) . ' )';
+   				}
+
+   				$vars = str_replace( $vars_array, $var_values, $vars);
+   				$this->string .= "( $vars )";
 			}
 
-			$this->string .= " WHERE " . implode( ' ', $values);
 			return $this;
 		}
 
@@ -192,6 +182,26 @@
 			return $this->error ? false : $this->stmt->rowCount();
 		}
 
+		public function result() {
+
+			if( $this->result === null ) {
+				$m = 'Error al mostrar los resultados de la consulta';
+				$e = 'Ninguna sentencia ha sido ejecutada (BladeCRUD::execute)';
+				Error::trace( $m, $e );
+			}
+
+			return $this->result;
+		}
+
+		public function string() {
+			return $this->string;
+		}
+
+
+		public function error() {
+			return $this->error;
+		}
+
 		public function execute() {
 			$this->stmt = $this->db->query( $this->string );
 			$this->executed_query = $this->initialized_query;
@@ -200,7 +210,11 @@
 
 			if( $this->initialized_query == 'select' && !$this->error ) {
 				$this->result = $this->stmt->fetchAll();
-			} 
+			} else if ( !$this->error ) {
+				$this->result = true;
+			} else {
+				$this->result = false;
+			}
 
 			return $this;
 		}

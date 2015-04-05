@@ -313,3 +313,57 @@
 	BladeCRUD::insert no puede ser usada antes de inicializar la tabla (BladeCRUD::table)
 [Trace]
 	[{"file":"\/var\/www\/html\/bitphp\/core\/modules\/BladeCRUD.php","line":94,"function":"trace","class":"BitPHP\\Error","type":"::","args":["Error al ejecutar sentencia INSERT","BladeCRUD::insert no puede ser usada antes de inicializar la tabla (BladeCRUD::table)"]},{"file":"\/var\/www\/html\/bitphp\/app\/controllers\/crud_testing.php","line":42,"function":"insert","class":"BladeCRUD","type":"->","args":[{"user":"hola","message":"vaca"}]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":40,"function":"insert","class":"Crud_Testing","type":"->","args":[]}]
+
+[TimeStamp]
+	Saturday 4th of April 2015 03:28:05 AM
+[Description]
+	No se puede leer la plantilla
+[Exception]
+	Aun no se ha renderizado (SwordEngine::render)
+[Trace]
+	[{"file":"\/var\/www\/html\/bitphp\/core\/modules\/SwordEngine.php","line":109,"function":"trace","class":"BitPHP\\Error","type":"::","args":["No se puede leer la plantilla","Aun no se ha renderizado (SwordEngine::render)"]},{"file":"\/var\/www\/html\/bitphp\/app\/controllers\/sword_testing.php","line":20,"function":"read","class":"SwordEngine","type":"->","args":["testing\/sword\/test1"]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":40,"function":"main","class":"Sword_Testing","type":"->","args":[]}]
+
+[TimeStamp]
+	Saturday 4th of April 2015 08:05:21 PM
+[Description]
+	Error al mostrar los resultados de la consulta
+[Exception]
+	Ninguna sentencia ha sido ejecutada (BladeCRUD::execute)
+[Trace]
+	[{"file":"\/var\/www\/html\/bitphp\/core\/modules\/BladeCRUD.php","line":190,"function":"trace","class":"BitPHP\\Error","type":"::","args":["Error al mostrar los resultados de la consulta","Ninguna sentencia ha sido ejecutada (BladeCRUD::execute)"]},{"file":"\/var\/www\/html\/bitphp\/app\/controllers\/crud_testing.php","line":20,"function":"result","class":"BladeCRUD","type":"->","args":[]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":40,"function":"select","class":"Crud_Testing","type":"->","args":[]}]
+
+[TimeStamp]
+	Saturday 4th of April 2015 08:06:50 PM
+[Description]
+	Error al mostrar los resultados de la consulta
+[Exception]
+	Ninguna sentencia ha sido ejecutada (BladeCRUD::execute)
+[Trace]
+	[{"file":"\/var\/www\/html\/bitphp\/core\/modules\/BladeCRUD.php","line":190,"function":"trace","class":"BitPHP\\Error","type":"::","args":["Error al mostrar los resultados de la consulta","Ninguna sentencia ha sido ejecutada (BladeCRUD::execute)"]},{"file":"\/var\/www\/html\/bitphp\/app\/controllers\/crud_testing.php","line":20,"function":"result","class":"BladeCRUD","type":"->","args":[]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":40,"function":"select","class":"Crud_Testing","type":"->","args":[]}]
+
+[TimeStamp]
+	Saturday 4th of April 2015 08:07:02 PM
+[Description]
+	Error al mostrar los resultados de la consulta
+[Exception]
+	Ninguna sentencia ha sido ejecutada (BladeCRUD::execute)
+[Trace]
+	[{"file":"\/var\/www\/html\/bitphp\/core\/modules\/BladeCRUD.php","line":190,"function":"trace","class":"BitPHP\\Error","type":"::","args":["Error al mostrar los resultados de la consulta","Ninguna sentencia ha sido ejecutada (BladeCRUD::execute)"]},{"file":"\/var\/www\/html\/bitphp\/app\/controllers\/crud_testing.php","line":20,"function":"result","class":"BladeCRUD","type":"->","args":[]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":40,"function":"select","class":"Crud_Testing","type":"->","args":[]}]
+
+[TimeStamp]
+	Saturday 4th of April 2015 08:07:42 PM
+[Description]
+	Error al mostrar los resultados de la consulta
+[Exception]
+	Ninguna sentencia ha sido ejecutada (BladeCRUD::execute)
+[Trace]
+	[{"file":"\/var\/www\/html\/bitphp\/core\/modules\/BladeCRUD.php","line":190,"function":"trace","class":"BitPHP\\Error","type":"::","args":["Error al mostrar los resultados de la consulta","Ninguna sentencia ha sido ejecutada (BladeCRUD::execute)"]},{"file":"\/var\/www\/html\/bitphp\/app\/controllers\/crud_testing.php","line":21,"function":"result","class":"BladeCRUD","type":"->","args":[]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":40,"function":"select","class":"Crud_Testing","type":"->","args":[]}]
+
+[TimeStamp]
+	Saturday 4th of April 2015 08:08:22 PM
+[Description]
+	Error al mostrar los resultados de la consulta
+[Exception]
+	Ninguna sentencia ha sido ejecutada (BladeCRUD::execute)
+[Trace]
+	[{"file":"\/var\/www\/html\/bitphp\/core\/modules\/BladeCRUD.php","line":190,"function":"trace","class":"BitPHP\\Error","type":"::","args":["Error al mostrar los resultados de la consulta","Ninguna sentencia ha sido ejecutada (BladeCRUD::execute)"]},{"file":"\/var\/www\/html\/bitphp\/app\/controllers\/crud_testing.php","line":21,"function":"result","class":"BladeCRUD","type":"->","args":[]},{"file":"\/var\/www\/html\/bitphp\/index.php","line":40,"function":"select","class":"Crud_Testing","type":"->","args":[]}]
