@@ -1,4 +1,3 @@
-#This file is a part of BitPHP
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-d

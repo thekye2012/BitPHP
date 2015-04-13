@@ -1,27 +1,12 @@
 <?php namespace BitPHP;
   
   /**
-  *	Static class that provides methods for data entry validation
-  *
-  *	<p>This class can be used independently of BitPHP, but you could use the
-  *	<b>url_param()</b> method as it works with variables created by BitPHP.</p>
-  *	<p>This class will facilitate the task of validating the various parameters
-  *	reciven by forms, by the url, or cookies, still in development.</p>
-  *
-  *	@author Eduardo B <ms7rbeta@gmail.com>
-  *	@version beta 1.3.0
-  * @package Core
-  *	@since bitphp 2.0
-  *	@link bitphp.root404.com/docs/html/classes/Input.html you can see docs of Input if you work without BitPHP here
-  *	@copyright 2014 Root404 Co.
-  *	@website http://bitphp.root404.com <contacto@root404.com>
-  *	@license GNU/GPLv3
+  * @author Eduardo B <ms7rbeta@gmail.com>
+  * @since bitphp 2.0
   */
   class Input {
 
     /**
-    *	if you use this class alone, you can download bitphp here -> bitphp.root404.com
-    *
     *	<p>ONLY WITH BITPHP, gets the value of the specified index in url params, and filters
     *	html chars, return null if index isn't set.</p><p>Url parameters are received here more
     *	easily, however, you can do as in previous versions, for compatibility with applications
@@ -31,19 +16,17 @@
     *	@param string $i index of $_params to search
     *	@param boolean $html_filter optional param, indicates whether to filter html chars, true by default
     *	@return string
-    *	@example /var/www/docs/examples/Input_url_param_ex.php
-    *	@todo was changed htmlspecialchars () by htmlentities () because it is faster
     */
     public static function url_param($i, $html_filter = true)
     {
-      global $_URL;
+      global $_ROUTE;
 
       if( is_numeric($i) ) { 
-        $i += ( ( Config::DEV && Config::ENABLE_HMVC ) || Config::ENABLE_PRO_MULTI_APP ) ? 3 : 2 ;
-        $s = !empty($_URL[$i]) ? $_URL[$i] : null;
+        $i += ( Config::ENABLE_HMVC ) ? 3 : 2 ;
+        $s = !empty($_ROUTE['URL'][$i]) ? $_ROUTE['URL'][$i] : null;
       } else {
-        $i = array_search($i, $_URL);
-        $s = ($i !== false) ? $_URL[$i + 1] : null ;
+        $i = array_search($i, $_ROUTE['URL']);
+        $s = ($i !== false) ? $_ROUTE['URL'][$i + 1] : null ;
       }
     
       return $html_filter ? htmlentities($s, ENT_QUOTES) : $s;
@@ -56,8 +39,6 @@
     *	@param string $k index of $_POST to search
     *	@param boolean $html_filter optional param, indicates whether to filter html chars, true by default
     *	@return string
-    *	@example /var/www/docs/examples/Input_post_ex.php
-    *	@todo was changed htmlspecialchars () by htmlentities () because it is faster
     */
     public static function post($k, $html_filter = true)
     {
@@ -72,8 +53,6 @@
     *	@param string $k index of $_GET to search
     *	@param boolean $html_filter optional param, indicates whether to filter html chars, true by default
     *	@return string
-    *	@example /var/www/docs/examples/Input_get_ex.php
-    *	@todo was changed htmlspecialchars () by htmlentities () because it is faster
     */
     public static function get($k, $html_filter = true)
     {
@@ -88,8 +67,6 @@
     *	@param string $k index of $_COOKIE to search
     *	@param boolean $html_filter optional param, indicates whether to filter html chars, true by default
     *	@return string
-    *	@example /var/www/docs/examples/Input_cookie_ex.php
-    *	@todo was changed htmlspecialchars () by htmlentities () because it is faster
     */
     public static function cookie($k, $html_filter = true)
     {

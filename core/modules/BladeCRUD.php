@@ -3,6 +3,9 @@
 	use \BitPHP\DataBase;
 	use \BitPHP\Error;
 
+	/**
+  	*	@author Eduardo B <ms7rbeta@gmail.com>
+  	*/
 	class BladeCRUD extends DataBase {
 
 		private $db;

@@ -2,8 +2,10 @@
 
 	use \BitPHP\Config;
 	use \BitPHP\Error;
-  	use \BitPHP\Route;
 
+	/**
+  	*	@author Eduardo B <ms7rbeta@gmail.com>
+  	*/
 	class SwordEngine {
 
 		public $template_source = '';
@@ -18,7 +20,7 @@
 
 		private function compile() {
 
-			$_PUBLIC_PATH = Route::public_folder_link();
+			global $_ROUTE;
 
 			$sword_sintax = [
 				  '<?'
@@ -48,9 +50,9 @@
 				, '?>'
 				, '<?php foreach('
 				, '<?php endforeach ?>'
-				, '<link rel="stylesheet" type="text/css" href="'.$_PUBLIC_PATH.'/css/'
+				, '<link rel="stylesheet" type="text/css" href="'.$_ROUTE['PUBLIC'].'/css/'
 				, '.css">'
-				, '<script src="'.$_PUBLIC_PATH.'/js/'
+				, '<script src="'.$_ROUTE['PUBLIC'].'/js/'
 				, '.js"></script>'
 			];
 
@@ -61,17 +63,17 @@
 
 			$this->clean();
 
-			global $_APP;
+			global $_ROUTE;
 
 			$templates = is_array($templates) ? $templates : [$templates];
       		$i = count($templates);
 
       		for($j = 0; $j < $i; $j++) {
-	        	$read = @file_get_contents( $_APP .'/views/'.$templates[$j].'.sword.php' );
+	        	$read = @file_get_contents( $_ROUTE['APP_PATH'] .'/views/'.$templates[$j].'.tmpl.php' );
 
         		if($read === FALSE){
 	          		$m = 'Error al renderizar <b>'.$templates[$j].'</b>';
-          			$c = 'El fichero <b>../' . $_APP .'/views/'.$templates[$j].'.sword.php</b> no existe';
+          			$c = 'El fichero <b>../' . $_ROUTE['APP_PATH'] .'/views/'.$templates[$j].'.tmpl.php</b> no existe';
           			Error::trace($m, $c);
 		    	}
 
@@ -89,15 +91,17 @@
 
 		public function render() {
 
+			global $_ROUTE;
+
 			if( $this->template_source == '' ) {
 				$m = 'No se puede renderizar';
 				$e = 'No se a cargado ninguna plantilla (SwordEngine::read)';
 				Error::trace( $m, $e );
 			}
 
-			$_BASE_PATH = Config::base_path();
-      		$_PUBLIC_PATH = Route::public_folder_link();
-      		$_APP_LINK = Route::app_link();
+			$_BASE_PATH = $_ROUTE['BASE_PATH'];
+      		$_PUBLIC_PATH = $_ROUTE['PUBLIC'];
+      		$_APP_LINK = $_ROUTE['APP_LINK'];
 
 			extract( $this->template_vars );
 			$compiled_source = $this->compile();

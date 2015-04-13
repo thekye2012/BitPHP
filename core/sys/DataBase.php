@@ -3,17 +3,7 @@
   use PDO;
   
   /**
-  *	Provides methods for load easily PDO objects
-  *
-  *	Besides creating PDO objects, you can also filter queries that will
-  *	be made to the database to clean possible characters that cause security holes.
-  *
-  *	@author Eduardo B <ms7rbeta@gmail.com>
-  *	@version beta 1.1.0
-  * @package Core
-  *	@copyright 2014 Root404 Co.
-  *	@website http://bitphp.root404.com <contacto@root404.com>
-  *	@license GNU/GPLv3
+  * @author Eduardo B <ms7rbeta@gmail.com>
   */
   class DataBase
   {
@@ -23,7 +13,6 @@
     *	@param string $dbname data base's name
     *	@param array $p connection parameters
     *	@return object
-    *	@example /var/www/docs/examples/DataBase_driver.php
     *	@todo modified to other controllers database and charset, mysql and utf8 by default
     */
     public static function driver($dbname, $p = Null) {
@@ -43,7 +32,6 @@
     *	@param string $string string to be cleaned
     *	@param boolean $remove Indicates whether to delete characters, or must be replaced by its html notation
     *	@return string
-    *	@example /var/www/docs/examples/DataBase_sanatize.php
     */
     public static function sanatize($string, $remove = False) {
       $_warnings = ['\'','\\'];

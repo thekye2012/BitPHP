@@ -1,5 +1,8 @@
 <?php use \BitPHP\Input;
 
+  /**
+  * @author Eduardo B <ms7rbeta@gmail.com>
+  */
 	class InputValidate extends Input {
 
   /**
@@ -43,7 +46,6 @@
     *	@param boolean $cryp indicates whether the return value is to be encrypted
     *	@param string $hash indicates the encryption algorithm using
     *	@return string
-    *	@example /var/www/docs/examples/Input_pass_ex.php
     */
     public static function pass($m, $k, $cryp = true, $hash = 'sha256')
     {
@@ -64,7 +66,6 @@
     *	@param string $m method to search (POST, GET, COOKIE, (and URLPARAMS in bitphp))
     *	@param string $k key to search in the method
     *	@return string
-    *	@example /var/www/docs/examples/Input_email_ex.php
     */
     public static function email($m, $k)
     {
@@ -84,7 +85,6 @@
     *	@param string $k key to search in the method
     *	@param string $t if indicated, converts the data type (INT or FLOAT)
     *	@return mixed
-    *	@example /var/www/docs/examples/Input_number_ex.php
     */
     public static function number($m, $k, $t = null)
     {
@@ -114,7 +114,6 @@
     *	@param integer $max_len maximum number of characters allowed
     *	@param integer $min_len minimum number of characters allowed
     *	@return string
-    *	@example /var/www/docs/examples/Input_large_as_ex.php
     */
     public static function large_as($m, $k, $max_len = 1024, $min_len = 1)
     {
@@ -139,7 +138,6 @@
     *	@param string $m method to search (POST, GET, COOKIE, (and URLPARAMS in bitphp))
     *	@param string $k key to search in the method
     *	@return string
-    *	@example /var/www/docs/examples/Input_pre.php
     */
     public static function pre($m, $k) {
       $s = self::get_value($m, $k);
