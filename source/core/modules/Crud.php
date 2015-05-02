@@ -6,7 +6,7 @@
 	/**
   	*	@author Eduardo B <ms7rbeta@gmail.com>
   	*/
-	class Crud extends DataBase {
+	class Crud {
 
 		private $db = null;
 		private $table_name = null;
@@ -18,7 +18,7 @@
 		public $error = null;
 
 		public function db( $dbname ) {
-			$this->db = self::driver( $dbname );
+			$this->db = DataBase::driver( $dbname );
 			return $this;
 		}
 
@@ -54,7 +54,7 @@
 
 			foreach ($q as $key => $value) {
 				$keys[$i] = $key;
-				$values[$i] = self::sanatize( $value );
+				$values[$i] = "'$value'";
 				$i++;
 			}
 
@@ -96,7 +96,7 @@
 			$i = 0;
 
 			foreach ($q as $key => $value) {
-				$values[$i] = $key . '=' . self::sanatize( $value );
+				$values[$i] = $key . "='$value'";
 				$i++;
 			}
 
